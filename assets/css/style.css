@@ -239,8 +239,8 @@ nav ul li a:hover::after {
 
 .project-card-content p {
     color: var(--light-text-color);
-    margin-bottom: 30px;
-    flex-grow: 1;
+    margin-bottom: 20px;
+    
 }
 
 .project-buttons {
