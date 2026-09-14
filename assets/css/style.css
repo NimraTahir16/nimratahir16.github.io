@@ -247,33 +247,24 @@ nav ul li a:hover::after {
       display: flex;
     gap: 15px;
     margin-top: auto;
-    align-items: stretch;
+
 }
 
 .btn {
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 130px;
-    height: 55px;
-    padding: 12px 20px;
-
+    
+   display: inline-block;
     background: var(--primary-color);
     color: var(--white-color);
-
-    border: 2px solid var(--primary-color);
+    padding: 12px 20px;
     border-radius: 5px;
-
     font-weight: 700;
-    font-size: 16px;
     text-align: center;
-    text-decoration: none;
-
-    white-space: nowrap;
-    cursor: pointer;
-
     transition: all 0.3s ease;
-    box-sizing: border-box;
+    flex: 1;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+
+    
 }
 
 .btn:hover {
