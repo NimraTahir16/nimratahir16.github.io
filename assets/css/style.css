@@ -295,12 +295,17 @@ nav ul li a:hover::after {
 } ---*/
 /* --- 5.5 Project Cards --- */
 
+/* --- PROJECT GRID --- */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     align-items: stretch;
 }
+
+
+/* --- PROJECT CARD --- */
 
 .project-card {
     background: var(--card-bg-color);
@@ -311,32 +316,38 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
 
-    /* EXACT CARD HEIGHT */
-    height: 560px;
+    /* Card height changes naturally */
+    height: 100%;
 
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+
+/* --- PROJECT IMAGE --- */
+
 .project-card img {
     width: 100%;
-    height: 190px;
+    height: auto;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: top;
-    flex-shrink: 0;
+    display: block;
 }
 
+
+/* --- CARD CONTENT --- */
+
 .project-card-content {
-    padding: 30px;
+    padding: 25px;
+    flex: 1;
 
     display: flex;
     flex-direction: column;
-
-    flex: 1;
 }
 
 .project-card-content h3 {
@@ -352,18 +363,16 @@ nav ul li a:hover::after {
     line-height: 1.7;
 }
 
-/* BUTTON AREA */
+
+/* --- BUTTONS --- */
+
 .project-buttons {
     display: flex;
     gap: 15px;
-
-    /* Push buttons to bottom */
     margin-top: auto;
-
     width: 100%;
 }
 
-/* BUTTON */
 .project-buttons .btn {
     flex: 1;
 
@@ -382,15 +391,6 @@ nav ul li a:hover::after {
 
     font-weight: 700;
     text-align: center;
-
-    transition: all 0.3s ease;
-}
-
-.project-buttons .btn:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--white-color);
-    transform: translateY(-2px);
 }
 
 .project-buttons .btn-secondary {
@@ -398,9 +398,68 @@ nav ul li a:hover::after {
     color: var(--primary-color);
 }
 
-.project-buttons .btn-secondary:hover {
-    background: var(--primary-color);
-    color: var(--white-color);
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .project-card-content {
+        padding: 20px;
+    }
+
+    .project-card-content h3 {
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card {
+        height: auto;
+    }
+
+    .project-card img {
+        aspect-ratio: 16 / 9;
+    }
+
+    .project-card-content {
+        padding: 20px;
+    }
+
+    .project-card-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-card-content p {
+        font-size: 0.95rem;
+    }
+
+    .project-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .project-buttons .btn {
+        width: 100%;
+    }
 }
 
 /* --- 6. Tabular Skills Section --- */
