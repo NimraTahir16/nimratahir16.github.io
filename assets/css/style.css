@@ -1,4 +1,65 @@
+/* Container for alignment with other social icons */
+.phone-hover-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Icon style */
+.phone-hover-container .phone-link {
+  color: inherit; /* Matches your existing icon colors */
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.phone-hover-container:hover .phone-link {
+  transform: scale(1.15);
+}
+
+/* Tooltip bubble (Hidden by default) */
+.phone-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 130%; /* Positions the box above the icon */
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background-color: #1e293b; /* Dark modern slate background */
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  white-space: nowrap;
+  pointer-events: none; /* Prevents flickering */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 100;
+}
+
+/* Small downward arrow under the bubble */
+.phone-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1e293b transparent transparent transparent;
+}
+
+/* Reveal tooltip on hover */
+.phone-hover-container:hover .phone-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 /* --- 1. Variables (Modern Tech Palette) --- */
 :root {
     /* This template uses a professional "Modern Tech" color scheme. */
